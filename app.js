@@ -19,7 +19,8 @@ var app = express();
 var mongoose = require('mongoose');
 //Set up default mongoose connection
 // var mongoDB = 'mongodb://127.0.0.1/my_database';
-var mongoDB ='mongodb+srv://ny:jimmy@cluster0-jsou4.azure.mongodb.net/local_library?retryWrites=true&w=majority';
+var dev_db_url ='mongodb+srv://ny:jimmy@cluster0-jsou4.azure.mongodb.net/local_library?retryWrites=true&w=majority';
+var mongoDB = process.env.MONGODB_URI || dev_db_url;
 mongoose.connect(mongoDB, { useNewUrlParser: true });
 //Get the default connection
 var db = mongoose.connection;
